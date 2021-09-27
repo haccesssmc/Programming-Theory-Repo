@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
-public class MaunMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
