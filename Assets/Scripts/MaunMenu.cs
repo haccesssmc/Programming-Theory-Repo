@@ -9,12 +9,6 @@ using UnityEditor;
 
 public class MaunMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void StartGame()
     {
         SceneManager.LoadScene(1);
