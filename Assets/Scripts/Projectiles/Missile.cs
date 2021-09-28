@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Missile : Projectile
 {
-    [SerializeField] [Min(0)] float rotationSpeed;
-    [SerializeField] [Min(0)] float captureAngle;
+    [SerializeField] float rotationSpeed;
+    [SerializeField] float captureAngle;
 
     private GameObject currentTarget = null;
 

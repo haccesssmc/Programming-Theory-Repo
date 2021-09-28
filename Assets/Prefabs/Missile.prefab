@@ -110,5 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 3
+  damage: 2
   rotationSpeed: 180
   captureAngle: 60
