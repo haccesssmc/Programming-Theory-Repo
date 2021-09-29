@@ -4,16 +4,48 @@ using UnityEngine;
 
 public class Player : Tank
 {
-    [SerializeField] int amoMax = 30;
+    public int amoMax { get; private set; } = 30;
+    public float healthMax { get; private set; } = 5;
+
+    int m_Amo;
+    public int amo
+    {
+        set
+        {
+            m_Amo = Mathf.Clamp(value, 0, amoMax);
+        }
+    }
+    int m_Rockets;
+    public int rockets 
+    {
+        get
+        {
+            return m_Rockets;
+        }
+        set
+        {
+            if (value > 0) m_Rockets = value;
+        }
+    }
+    float m_EngineBustTimer;
+    public float engineBustTimer
+    {
+        get
+        {
+            return m_EngineBustTimer;
+        }
+        set
+        {
+            m_EngineBustTimer += value;
+            if (m_EngineBustTimer < 0) m_EngineBustTimer = 0;
+        }
+    }
+
     [SerializeField] GameObject rocket;
-    [SerializeField] float healthMax = 5;
 
     float rotate;
     float initEnginePower;
     float initRotationSpeed;
-    float engineBustTimer;
-    int amo;
-    int rockets;
 
     float minX;
     float maxX;
@@ -26,10 +58,10 @@ public class Player : Tank
 
         initEnginePower = enginePower;
         initRotationSpeed = rotationSpeed;
-        engineBustTimer = 0;
+        m_EngineBustTimer = 0;
 
-        amo = amoMax;
-        rockets = 2;
+        m_Amo = amoMax;
+        m_Rockets = 2;
         reloadingTimer = 0;
     }
 
@@ -66,19 +98,19 @@ public class Player : Tank
 
     protected override void Shoot()
     {
-        if(amo > 0)
+        if(m_Amo > 0)
         {
-            amo--;
+            m_Amo--;
             base.Shoot();
         }
     }
 
     void LaunchRocket()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0 && rockets > 0)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0 && m_Rockets > 0)
         {
             GameObject obj = Instantiate(rocket, transform.position + transform.forward * 2, transform.rotation);
-            rockets--;
+            m_Rockets--;
         }
     }
 
@@ -104,38 +136,15 @@ public class Player : Tank
 
     void EngineBustHandler()
     {
-        if(engineBustTimer > 0)
+        if(m_EngineBustTimer > 0)
         {
-            engineBustTimer -= Time.deltaTime;
+            m_EngineBustTimer -= Time.deltaTime;
         }
 
-        if (engineBustTimer < 0)
+        if (m_EngineBustTimer < 0)
         {
             enginePower = initEnginePower;
             rotationSpeed = initRotationSpeed;
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Fuel"))
-        {
-            if(engineBustTimer <= 0)
-            {
-                enginePower *= 1.5f;
-                rotationSpeed *= 2;
-            }
-            engineBustTimer += 30;
-
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Amo"))
-        {
-            rockets += 5;
-            health = healthMax;
-            amo = amoMax;
-
-            Destroy(collision.gameObject);
         }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9135818618928590720}
   - component: {fileID: 9135818618928590723}
   - component: {fileID: 9135818618928590748}
-  - component: {fileID: 9135818618928590751}
+  - component: {fileID: 2319870233803872391}
   m_Layer: 0
   m_Name: Amo Crate
   m_TagString: Amo
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9135818618928590751
+--- !u!114 &2319870233803872391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,8 +122,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9135818618928590722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a821c89e50082942948307bcfa134df, type: 3}
+  m_Script: {fileID: 11500000, guid: f387998c0bf771646a9097ef1d228820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   force: 8
-  timeOfLeave: 30
+  lifetime: 20
+  rocketsCount: 5

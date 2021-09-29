@@ -6,7 +6,6 @@ public class Shell : Projectile
 {
     void Update()
     {
-        TimeHandler();
         Move();
     }
 

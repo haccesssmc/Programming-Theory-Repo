@@ -121,7 +121,7 @@ public class Enemy : Tank
     float Rotate()
     {
         // define the lead for the target
-        float targetSpeed = target.GetComponent<CivilController>().GetSpeed();
+        float targetSpeed = target.GetComponent<Civil>().GetSpeed();
         float projectileSpeed = projectile.GetComponent<Shell>().GetSpeed();
         float advance = Vector3.Distance(target.transform.position, transform.position) * targetSpeed / projectileSpeed;
 
