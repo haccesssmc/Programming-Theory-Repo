@@ -351,6 +351,69 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246584896}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &277349797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 277349800}
+  - component: {fileID: 277349799}
+  - component: {fileID: 277349798}
+  m_Layer: 0
+  m_Name: CivilCarsSpawner1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &277349798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277349797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6236b66712e1014e9ab63cd2f9ea113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 5
+  spawnPrefabs:
+  - {fileID: 4578608959923520409, guid: 3e6cee7ebbd359d40ad25545788b8237, type: 3}
+  - {fileID: 6260493578907522937, guid: 48f3a2e993ecd7f4b8ad083aee3d042f, type: 3}
+  - {fileID: 8979135070730068311, guid: 3b4d094ab412d6b48b52c4527270d9f8, type: 3}
+  - {fileID: 3148114388792172682, guid: d78481475689131459d734ef5c2585eb, type: 3}
+--- !u!65 &277349799
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277349797}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0, y: 0, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &277349800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277349797}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 68.49312, y: -1.4811198, z: -4.661236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1375113378}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410259734
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,71 +797,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &654420997
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 654420999}
-  - component: {fileID: 654420998}
-  m_Layer: 0
-  m_Name: Spawn Manadger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &654420998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654420997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc45f7600d456a04da1cdf0cba8dc60e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  civilSpawn: {x: 30, y: 0.5, z: -25.5}
-  civilCarSpawn1: {x: 30, y: 0.5, z: -28}
-  civilCarSpawn2: {x: 30, y: 0.5, z: -31}
-  civilSpawnRange: {x: 0, y: 0, z: 0.7}
-  civilSpawnTime: 2
-  civilCarSpawnTime: 4
-  civils: []
-  civilCars:
-  - {fileID: 4578608959923520409, guid: 3e6cee7ebbd359d40ad25545788b8237, type: 3}
-  - {fileID: 6260493578907522937, guid: 48f3a2e993ecd7f4b8ad083aee3d042f, type: 3}
-  - {fileID: 8979135070730068311, guid: 3b4d094ab412d6b48b52c4527270d9f8, type: 3}
-  - {fileID: 3148114388792172682, guid: d78481475689131459d734ef5c2585eb, type: 3}
-  EnemySpawn: {x: 0, y: 0.5, z: 29}
-  enemySpawnRange: {x: 10, y: 0, z: 2}
-  enemies:
-  - {fileID: 4122455618091135548, guid: 8074ce70b6051ff4bb508db696aa8d28, type: 3}
-  busterSpawn: {x: 0, y: 0.5, z: -23}
-  busterSpawnRange: {x: 10, y: 0, z: 0}
-  busterSpawnTime: 20
-  busters:
-  - {fileID: 9135818618928590722, guid: 210ebec66e0fcce46ab600111b99fc11, type: 3}
-  - {fileID: 1065004328212081249, guid: 473b7229905712e438ad3a4ba0cac48b, type: 3}
---- !u!4 &654420999
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654420997}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +973,68 @@ Transform:
   m_Father: {fileID: 1632930648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!1 &1031873915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031873918}
+  - component: {fileID: 1031873917}
+  - component: {fileID: 1031873916}
+  m_Layer: 0
+  m_Name: BusterSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1031873916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031873915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6236b66712e1014e9ab63cd2f9ea113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 30
+  spawnPrefabs:
+  - {fileID: 9135818618928590722, guid: 210ebec66e0fcce46ab600111b99fc11, type: 3}
+  - {fileID: 9135818618928590722, guid: 210ebec66e0fcce46ab600111b99fc11, type: 3}
+  - {fileID: 1065004328212081249, guid: 473b7229905712e438ad3a4ba0cac48b, type: 3}
+--- !u!65 &1031873917
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031873915}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1031873918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031873915}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 39.493122, y: -1.4811198, z: -0.6612358}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1375113378}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155133896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,11 +1145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0070527ff81af04c8b46e497d7045f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  speed: 3
   enginePower: 2
   rotationSpeed: 90
   reloadingTime: 1
-  amoMax: 30
-  hitpointsMax: 5
   projectile: {fileID: 5351418105873316902, guid: 5dc9c79f72623ae49841d1a8567db977, type: 3}
   rocket: {fileID: 2323634473941332915, guid: 2dabaec0b7896e3498575c5c8073318a, type: 3}
 --- !u!54 &1155133902
@@ -1299,6 +1359,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294975352}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1375113377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1375113378}
+  m_Layer: 0
+  m_Name: Spawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1375113378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375113377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -36.493122, y: 1.9811198, z: -23.338764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2032598315}
+  - {fileID: 1031873918}
+  - {fileID: 277349800}
+  - {fileID: 1505906144}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1395814215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1622,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411299980}
   m_CullTransparentMesh: 1
+--- !u!1 &1505906141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505906144}
+  - component: {fileID: 1505906143}
+  - component: {fileID: 1505906142}
+  m_Layer: 0
+  m_Name: CivilCarsSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1505906142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505906141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6236b66712e1014e9ab63cd2f9ea113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 5
+  spawnPrefabs:
+  - {fileID: 4578608959923520409, guid: 3e6cee7ebbd359d40ad25545788b8237, type: 3}
+  - {fileID: 6260493578907522937, guid: 48f3a2e993ecd7f4b8ad083aee3d042f, type: 3}
+  - {fileID: 8979135070730068311, guid: 3b4d094ab412d6b48b52c4527270d9f8, type: 3}
+  - {fileID: 3148114388792172682, guid: d78481475689131459d734ef5c2585eb, type: 3}
+--- !u!65 &1505906143
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505906141}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0, y: 0, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1505906144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505906141}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 68.49312, y: -1.4811198, z: -7.661236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1375113378}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1522863685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,6 +2244,66 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2032598313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032598315}
+  - component: {fileID: 2032598314}
+  - component: {fileID: 2032598316}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2032598314
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032598313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 0, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2032598315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032598313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 36.493122, y: -1.4811198, z: 56.338764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1375113378}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032598316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032598313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da392b1caa4e6ac4a82e26d3f56bf537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 15
+  enemies:
+  - {fileID: 4122455618091135548, guid: 8074ce70b6051ff4bb508db696aa8d28, type: 3}
 --- !u!1 &2098168889
 GameObject:
   m_ObjectHideFlags: 0

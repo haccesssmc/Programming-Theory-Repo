@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Tank : Vehicle
 {
-    [SerializeField] protected float enginePower = 5.0f;
-    [SerializeField] protected float rotationSpeed = 90.0f;
+    public float enginePower = 5.0f;
+    public float rotationSpeed = 90.0f;
+
     [SerializeField] protected float reloadingTime = 4.0f;
     [SerializeField] protected GameObject projectile;
 

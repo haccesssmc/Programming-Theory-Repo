@@ -8,6 +8,11 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] protected float lifetime = 3;
     [SerializeField] protected float damage = 1;
 
+    void Awake()
+    {
+        StartCoroutine(TimeHandler());
+    }
+
     protected void Move()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
@@ -18,16 +23,10 @@ public abstract class Projectile : MonoBehaviour
         target.ChangeHealth(-damage);
     }
 
-    protected void TimeHandler()
+    IEnumerator TimeHandler()
     {
-        if(lifetime < 0)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            lifetime -= Time.deltaTime;
-        }
+        yield return new WaitForSeconds(lifetime);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

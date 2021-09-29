@@ -11,8 +11,6 @@ public class Missile : Projectile
 
     void Update()
     {
-        TimeHandler();
-
         if(currentTarget == null)
         {
             selectTarget();
