@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Vehicle : MonoBehaviour
 {
-    public float health { protected get; set; } = 2;
+    public float health = 2;
 
     [SerializeField] protected float damage = 1;
     [SerializeField] protected float speed = 3;
