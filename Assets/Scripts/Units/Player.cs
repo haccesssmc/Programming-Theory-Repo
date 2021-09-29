@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Tank
+public class Player : Tank
 {
     [SerializeField] int amoMax = 30;
     [SerializeField] GameObject rocket;
