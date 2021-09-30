@@ -2,13 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+
+
+// INHERITANCE
+// parent class for other zone spawners
+public class ZoneSpawner : MonoBehaviour
 {
-    protected void spawnSingle(List<GameObject> spawnCollection, Vector3 spawnPoint, Vector3 spawnZone)
+    protected Vector3 spawnZone;
+
+
+    void Awake()
+    {
+        Init();
+    }
+
+
+    void Init()
+    {
+        spawnZone = GetComponent<BoxCollider>().size;
+    }
+
+
+    protected void SpawnSingle(List<GameObject> spawnCollection)
     {
         if (spawnCollection.Count < 1) return;
 
         GameObject spawnObject = spawnCollection[Random.Range(0, spawnCollection.Count)];
+        Vector3 spawnPoint = transform.position;
 
         float x = spawnPoint.x + spawnZone.x * Random.Range(-0.5f, 0.5f);
         float y = spawnPoint.y + spawnZone.y * Random.Range(-0.5f, 0.5f);

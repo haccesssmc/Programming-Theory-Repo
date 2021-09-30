@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+// INHERITANCE
+// inherited from the Tank class
 public class Enemy : Tank
 {
     [SerializeField] float targetingTime = 2;
@@ -9,13 +13,21 @@ public class Enemy : Tank
     float targetingTimer;
     GameObject target;
 
+
     void Awake()
+    {
+        Init();
+    }
+
+
+    void Init()
     {
         targetingTimer = targetingTime;
         reloadingTimer = 0;
         acceleration = 0;
         target = null;
     }
+
 
     void Update()
     {
@@ -33,6 +45,7 @@ public class Enemy : Tank
         SpeedCalculation();
         Move();
     }
+
 
     void AiInput()
     {
@@ -57,6 +70,7 @@ public class Enemy : Tank
         }
     }
 
+
     void SimulateAccelerationInput(bool press)
     {
         if (acceleration < 1 && press)
@@ -70,6 +84,7 @@ public class Enemy : Tank
 
         acceleration = Mathf.Clamp01(acceleration);
     }
+
 
     void CheckTargetVisibility()
     {
@@ -100,6 +115,7 @@ public class Enemy : Tank
         }
     }
 
+
     void selectTarget()
     {
         // targeting cooldown
@@ -118,10 +134,11 @@ public class Enemy : Tank
         }
     }
 
+
     float Rotate()
     {
         // define the lead for the target
-        float targetSpeed = target.GetComponent<Civil>().GetSpeed();
+        float targetSpeed = target.GetComponent<CivilCar>().GetSpeed();
         float projectileSpeed = projectile.GetComponent<Shell>().GetSpeed();
         float advance = Vector3.Distance(target.transform.position, transform.position) * targetSpeed / projectileSpeed;
 
@@ -140,6 +157,4 @@ public class Enemy : Tank
         // return the angle of the remaining turn
         return Vector3.Angle(transform.forward, lookAtDir);
     }
-
-
 }

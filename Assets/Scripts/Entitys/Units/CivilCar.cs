@@ -2,16 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Civil : Vehicle
+
+
+// INHERITANCE
+// inherited from the vehicle class
+public class CivilCar : Vehicle
 {
     void Update()
     {
         Move();
-        if(transform.position.x < -30)
+        CheckBounds();
+    }
+
+
+    void CheckBounds()
+    {
+        if (transform.position.x < -30)
         {
             Destroy(gameObject);
         }
     }
+
 
     public float GetSpeed()
     {

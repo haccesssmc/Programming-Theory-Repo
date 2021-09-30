@@ -2,28 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveSpawner : Spawner
+
+
+// INHERITANCE
+// inherited from the parrent ZoneSpawner class
+public class WaveSpawner : ZoneSpawner
 {
     [SerializeField] float cooldownTime = 15;
     [SerializeField] List<GameObject> enemies;
 
     int stage = 0;
-    bool waveWaiting = false;
-    Vector3 spawnZone;
+    bool isWaiting = false;
 
-    void Start()
-    {
-        spawnZone = GetComponent<BoxCollider>().size;
-    }
 
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !waveWaiting)
+        CheckWave();
+    }
+
+
+    void CheckWave()
+    {
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !isWaiting)
         {
-            waveWaiting = true;
+            isWaiting = true;
             StartCoroutine(spawnWave());
         }
     }
+
 
     IEnumerator spawnWave()
     {
@@ -32,9 +38,9 @@ public class WaveSpawner : Spawner
         stage++;
         for (int i = 0; i < stage; i++)
         {
-            spawnSingle(enemies, transform.position, spawnZone);
+            SpawnSingle(enemies);
         }
 
-        waveWaiting = false;
+        isWaiting = false;
     }
 }

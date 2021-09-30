@@ -2,31 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleSpawner : Spawner
+
+
+// INHERITANCE
+// inherited from the parrent ZoneSpawner class
+public class SingleSpawner : ZoneSpawner
 {
     [SerializeField] float spawnTime = 5;
     [SerializeField] List<GameObject> spawnPrefabs;
 
-    float currentSpawnTime;
-    Vector3 spawnZone;
 
     void Start()
     {
-        spawnZone = GetComponent<BoxCollider>().size;
         TimeHandler();
     }
 
-    IEnumerator Spawn()
+
+    IEnumerator Spawn(float time)
     {
-        yield return new WaitForSeconds(currentSpawnTime);
+        yield return new WaitForSeconds(time);
  
-        spawnSingle(spawnPrefabs, transform.position, spawnZone);
+        SpawnSingle(spawnPrefabs);
         TimeHandler();
     }
+
 
     void TimeHandler()
     {
-        currentSpawnTime = spawnTime * Random.Range(0.5f, 1.5f);
-        StartCoroutine(Spawn());
+        StartCoroutine(Spawn(spawnTime * Random.Range(0.5f, 1.5f)));
     }
 }

@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+// INHERITANCE
+// inherited from the Tank class
 public class Player : Tank
 {
+    // ENCAPSULATION
+    // protected variables amoMax and healthMax from being changed from other classes
     public int amoMax { get; private set; } = 30;
     public float healthMax { get; private set; } = 5;
 
+    // ENCAPSULATION
+    // set custom getters and setters for variables amo, rockets and engineBustTimer
     int m_Amo;
     public int amo
     {
@@ -15,6 +23,7 @@ public class Player : Tank
             m_Amo = Mathf.Clamp(value, 0, amoMax);
         }
     }
+
     int m_Rockets;
     public int rockets 
     {
@@ -27,6 +36,7 @@ public class Player : Tank
             if (value > 0) m_Rockets = value;
         }
     }
+
     float m_EngineBustTimer;
     public float engineBustTimer
     {
@@ -52,7 +62,21 @@ public class Player : Tank
     float minZ;
     float maxZ;
 
+
     void Awake()
+    {
+        Init();
+    }
+
+
+    void Update()
+    {
+        MovingHandler();
+        ShootingHandler();
+    }
+
+
+    void Init()
     {
         PlayerBoundsCalculation();
 
@@ -65,26 +89,32 @@ public class Player : Tank
         reloadingTimer = 0;
     }
 
-    void Update()
+
+    void MovingHandler()
     {
-        // Moving
         GetMovingInput();
         EngineBustHandler();
         SpeedCalculation();
         Rotate();
         Move();
+    }
 
-        // Shooting
+
+    void ShootingHandler()
+    {
         Reload();
-        if(Input.GetKeyDown(KeyCode.Space) && reloadingTimer <= 0)
+
+        if (Input.GetKeyDown(KeyCode.Space) && reloadingTimer <= 0)
         {
             Shoot();
         }
-        if(Input.GetKeyDown(KeyCode.E))
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
             LaunchRocket();
         }
     }
+
 
     void PlayerBoundsCalculation()
     {
@@ -96,6 +126,10 @@ public class Player : Tank
         maxZ = cTrans.position.z + c.size.z * 0.5f * cTrans.localScale.z - 2;
     }
 
+
+    // POLYMORPHISM
+    // overrided the base Move method from the parent class
+    // to implement a decreasing of the amo count
     protected override void Shoot()
     {
         if(m_Amo > 0)
@@ -104,6 +138,7 @@ public class Player : Tank
             base.Shoot();
         }
     }
+
 
     void LaunchRocket()
     {
@@ -114,11 +149,13 @@ public class Player : Tank
         }
     }
 
+
     void GetMovingInput()
     {
         acceleration = Input.GetAxis("Vertical");
         rotate = Input.GetAxis("Horizontal");
     }
+
 
     void Rotate()
     {
@@ -128,11 +165,15 @@ public class Player : Tank
         transform.Rotate(Vector3.up, rotate * rotationSpeed * Time.deltaTime);
     }
 
+
+    // POLYMORPHISM
+    // override the base Move method from the parrent class
     protected override void Move()
     {
         Vector3 newPos = transform.position + transform.forward * speed * Time.deltaTime;
         transform.position = new Vector3(Mathf.Clamp(newPos.x, minX, maxX), newPos.y, Mathf.Clamp(newPos.z, minZ, maxZ));
     }
+
 
     void EngineBustHandler()
     {

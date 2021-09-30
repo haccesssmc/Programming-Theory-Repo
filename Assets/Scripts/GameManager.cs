@@ -4,26 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
-    public bool isGameActive { get; private set; }
+    // ENCAPSULATION
+    // prevented changing the variable from other classes 
+    public bool isGameActive { get; private set; } = true;
 
-    private void Start()
-    {
-        isGameActive = true;
-    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            PauseHandler();
-        }
+        PauseHandler();
     }
+
 
     void PauseHandler()
     {
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+
         if (pauseScreen.activeSelf)
         {
             pauseScreen.SetActive(false);
@@ -37,6 +36,7 @@ public class GameManager : MonoBehaviour
             isGameActive = false;
         }
     }
+
 
     public void ExitToMenu()
     {

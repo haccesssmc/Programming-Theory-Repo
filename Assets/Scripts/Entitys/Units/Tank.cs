@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tank : Vehicle
+// INHERITANCE
+// parrent class for other vehicles
+public abstract class Tank : Vehicle
 {
     public float enginePower = 5.0f;
     public float rotationSpeed = 90.0f;
@@ -13,6 +15,8 @@ public class Tank : Vehicle
     protected float acceleration;
     protected float reloadingTimer;
 
+    // POLYMORPHISM
+    // implemented a virtual method for overriding in child classes
     protected virtual void Reload()
     {
         if (reloadingTimer > 0.0f)
@@ -21,6 +25,8 @@ public class Tank : Vehicle
         }
     }
 
+    // POLYMORPHISM
+    // implemented a virtual method for overriding in child classes
     protected virtual void Shoot()
     {
         Instantiate(projectile, transform.position + transform.forward * 2.0f, transform.rotation);
